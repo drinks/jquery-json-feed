@@ -3,15 +3,15 @@
         
         var presets = $(this).JSONFeed.presets,
         defaults = {
-            url: 'http://projects.washingtonpost.com/moderation/twitter-feed/washington-post-tweets/recent.json',
+            url: 'http://search.twitter.com/search.json?q=jQuery',
             iterator: function(data){ return data; },
             num: 5,
-            spinner: '<img class="jf-loading" src="http://media.washingtonpost.com/wp-srv/wpost/images/loading.gif" alt="loading..." />',
-            template: presets.moderation.template,
+            spinner: '<span>Loading..</span>',
+            template: '<p style="color:#a00">You haven\'t set a template for this feed! see the <a href="'+$(this).JSONFeed.docsURL+'"docs</a>.</p>',
             jsonVarP: /\{\{([^\}]+)\}\}/gm,
             optionP: /\{%([^%]+)%\}/gm,
-            renderCallback: presets.moderation.renderCallback,
-            appendCallback: presets.moderation.appendCallback,
+            renderCallback: function(str){return str},
+            appendCallback: function(){},
         },
         options = $.extend({}, defaults, opts),
         render = function(data){
@@ -22,9 +22,9 @@
         
         return $(this).each(function(){
             var self = this;
-            $(self).append(options.spinner);
+            $(self).append($(options.spinner).addClass('jf-spinner'));
             $.getJSON(options.url, 'callback=?', function(data, status){
-                $(self).find('.' + $(options.spinner).attr('className')).remove();
+                $(self).find('.jf-spinner').remove();
                 $.each(options.iterator(data), function(idx, item){
                     if(idx<options.num){
                         $(self).append(render(item));
@@ -36,5 +36,5 @@
             });
         });
     }
-    
+    $.fn.JSONFeed.docsURL = 'http://github.com/dandrinkard/jquery-json-feed/';
 })(jQuery, window);
