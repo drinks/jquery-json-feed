@@ -13,14 +13,16 @@
             if(el.attr('className')){
                 selector+= '.'+el.attr('className');
             }
-            twttr.anywhere(function(T){
-                T(selector).hovercards();
-                T(selector + ' .anywhere-username').hovercards({
-                    username: function(el){
-                        return el.innerHTML;
-                    }
-                })
-            });
+            if(typeof twttr != 'undefined'){
+                twttr.anywhere(function(T){
+                    T(selector).hovercards();
+                    T(selector + ' .anywhere-username').hovercards({
+                        username: function(el){
+                            return el.innerHTML;
+                        }
+                    });
+                });
+            }
         }
     });
 })(jQuery);
