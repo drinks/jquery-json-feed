@@ -14,6 +14,7 @@
                                  <a class="jf-timestamp" href="http://twitter.com/{{from_user}}/status/{{id_str}}">{{created_at}}</a></p>\
                              <p class="jf-tweet">{{text}}</p>\
                          </div>',
+             iterator: function(data){ return data.results; }
              renderCallback: function(str){
                  var str = $(this).JSONFeed.utils.activateLinks(str);
                  return $(this).JSONFeed.utils.activateTwitterHashTags(str);

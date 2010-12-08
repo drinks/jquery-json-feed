@@ -19,16 +19,62 @@ Sample implementation (docs forthcoming)
         <script type="text/javascript" src="https://github.com/dandrinkard/jquery-json-feed/raw/master/presets/jf.preset.twp-django-moderation.js"></script>
     </head>
     <body>
-
-    <div id="test"></div>
+    <h2>Using a preset:</h2>
+    <div id="test1"></div>
+    <h2>Advanced options, the verbose way:</h2>
+    <div id="test2"></div>
     <script type="text/javascript" charset="utf-8">
-        (function($){
-            $(function(){
-                $('#test').JSONFeed($.extend({}, $().JSONFeed.presets.twpDjangoModeration, {
-                    url: 'http://projects.washingtonpost.com/moderation/twitter-feed/washington-post-tweets/recent.json',
-                }));
+    (function($){
+        $(function(){
+            // using a preset
+            $('#test1').JSONFeed($.extend({}, $().JSONFeed.presets.twpDjangoModeration, {
+                url: 'http://projects.washingtonpost.com/moderation/twitter-feed/washington-post-tweets/recent.json',
+            }));
+
+            // advanced options, the verbose way
+            $('#test2').JSONFeed({
+                url: 'http://search.twitter.com/search.json?q=jQuery',
+                num:10,
+                avatar_width: 32,
+                avatar_height: 32,
+                iterator: function(data){
+                    return data.results;
+                },
+                template: '<div class="jf-tweet">\
+                                <a href="http://twitter.com/{{from_user}}"><img src="{{profile_image_url}}" alt="{{from_user}}" width="{%avatar_width%}" height="{%avatar_height%}" /></a>\
+                                <p class="jf-meta">\
+                                    <a class="anywhere-username" href="http://twitter.com/{{from_user}}">{{from_user}}</a> - \
+                                    <a class="jf-timestamp" href="http://twitter.com/{{from_user}}/status/{{id_str}}">{{created_at}}</a></p>\
+                                <p class="jf-tweet">{{text}}</p>\
+                            </div>',
+                renderCallback: function(str){
+                    // activate links
+                    return str.replace(/\s(https?\:\/\/[^\s\<]+)/gmi, function($0, $1){
+                        return ' ' + $1.link($1)
+                    });
+                },
+                appendCallback: function(){
+                    // do hovercards
+                    var el = $(this),
+                    selector = el.attr('tagName').toLowerCase();
+                    if($(el).attr('id')){
+                        selector += '#'+el.attr('id')
+                    }
+                    if(el.attr('className')){
+                        selector+= '.'+el.attr('className');
+                    }
+                    twttr.anywhere(function(T){
+                        T(selector).hovercards();
+                        T(selector + ' .anywhere-username').hovercards({
+                            username: function(el){
+                                return el.innerHTML;
+                            }
+                        })
+                    });
+                }
             });
-        })(jQuery);
+        });
+    })(jQuery);
     </script>
 
     </body>
