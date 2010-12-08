@@ -9,7 +9,7 @@
             template: '<p style="color:#a00">You haven&apos;t set a template for this feed!</p>',
             jsonVarP: /\{\{([^\}]+)\}\}/gm,
             optionP: /\{%([^%]+)%\}/gm,
-            renderCallback: function(str){ console.log(str); return str},
+            renderCallback: function(str){return str},
             appendCallback: function(){},
         },
         options = $.extend({}, defaults, opts),
