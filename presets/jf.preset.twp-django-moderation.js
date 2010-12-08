@@ -19,6 +19,6 @@
             appendCallback: function(){
                 $(this).JSONFeed.utils.hovercardsWithUsernames(this);
             }
-        },
+        }
     });
 })(jQuery);
