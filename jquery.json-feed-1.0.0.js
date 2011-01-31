@@ -52,7 +52,12 @@
                 }
             }
             $(self).append($(options.spinner).addClass('jf-spinner'));
-            $.ajax(ajaxOpts);
+            if(ajaxOpts.url){
+                $.ajax(ajaxOpts);
+            }else{
+                ajaxOpts.success([], 'skipped');
+            }
+
         });
     }
     $.fn.JSONFeed.docsURL = 'http://github.com/dandrinkard/jquery-json-feed/';
