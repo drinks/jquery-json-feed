@@ -12,7 +12,7 @@
             jsonVarP: /\{\{([^\}]+)\}\}/gm,
             optionP: /\{%([^%]+)%\}/gm,
             renderCallback: function(str){return str},
-            appendCallback: function(){},
+            appendCallback: function(){}
         },
         options = $.extend({}, defaults, opts),
         render = function(data){
