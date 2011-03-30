@@ -24,7 +24,7 @@
         return $(this).each(function(){
             var self = this;
             var ajaxOpts = {
-                url: options.url,
+                url: $(self).attr('data-url') || options.url,
                 dataType: (options.jsonpCallback) ? 'jsonp': 'json',
                 success: function(data, status){
                     $(self).find('.jf-spinner').remove();
