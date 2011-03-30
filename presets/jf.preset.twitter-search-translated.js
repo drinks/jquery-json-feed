@@ -5,7 +5,6 @@
              * Twitter Search Feed
              * @requires twttr.anywhere <http://dev.twitter.com/anywhere>
              * @requires utils.activateLinks
-             * @requires utils.hoverCardsWithUsernames
              */
              template: '<div class="jf-tweet">\
                              <a href="http://twitter.com/{{from_user}}"><img src="{{profile_image_url}}" alt="{{from_user}}" width="{%avatar_width%}" height="{%avatar_height%}" /></a>\
@@ -21,7 +20,6 @@
                  return str;
              },
              appendCallback: function(){
-                 $(this).JSONFeed.utils.hovercardsWithUsernames(this);
                  var language = $(this).attr('data-language') || 'es';
                  $(this).JSONFeed.utils.googleTranslate(this, language, 'div.jf-tweet');
              }
