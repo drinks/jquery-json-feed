@@ -26,7 +26,7 @@
                     $(this).text(date.toUTCString()).relativeDate();
                 });
                 var language = $(this).attr('data-language') || 'es';
-                $(this).JSONFeed.utils.googleTranslate(this, language, 'div.jf-tweet');
+                $(this).JSONFeed.utils.googleTranslate(this, language, 'p.jf-tweet');
             }
         }
     });
