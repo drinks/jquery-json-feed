@@ -6,7 +6,7 @@
          */
          activateTwitterHashTags: function(str){
              return str.replace(/(^|\s)?#([\w]+)/gmi, function($0, $1, $2){
-                 return $1 + ('#'+$2).link('http://twitter.com/search/%23' + $2);
+                 return ($1 || '') + ('#'+$2).link('http://twitter.com/search/%23' + $2);
              });
          }
      });

@@ -6,7 +6,7 @@
          */
          activateLinks: function(str){
              return str.replace(/(^|\s)(https?\:\/\/[^\s\<]+)/gmi, function($0, $1, $2){
-                 return $1 + $2.link($2)
+                 return ($1 || '') + $2.link($2)
              });
          }
      });
