@@ -20,22 +20,22 @@
             var str = options.template.replace(options.jsonVarP, function($0,$1){
                     var keys = $1.split('.'),
                         response = data;
-                    for(key in keys){
+                    $.each(keys, function(idx, key){
                         if(typeof response[key] != 'undefined'){
                             response = response[key];
                         }else{ response=''; }
-                    }
+                    });
                     return response;
                 })
                 // options
                 .replace(options.optionP, function($0,$1){
                     var keys = $1.split('.'),
                         response = options;
-                    for(key in keys){
+                    $.each(keys, function(idx, key){
                         if(typeof options[key] != 'undefined'){
                             response = response[key];
                         }else{ response = '' }
-                    }
+                    });
                     return response;
                 });
             return options.renderCallback(str);
