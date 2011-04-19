@@ -16,8 +16,28 @@
         },
         options = $.extend({}, defaults, opts),
         render = function(data){
-            var str = options.template.replace(options.jsonVarP, function($0,$1){return data[$1] || ''})
-                .replace(options.optionP, function($0,$1){return options[$1] || ''});
+            // data
+            var str = options.template.replace(options.jsonVarP, function($0,$1){
+                    var keys = $1.split('.'),
+                        response = data;
+                    for(key in keys){
+                        if(typeof response[key] != 'undefined'){
+                            response = response[key];
+                        }else{ response=''; }
+                    }
+                    return response;
+                })
+                // options
+                .replace(options.optionP, function($0,$1){
+                    var keys = $1.split('.'),
+                        response = options;
+                    for(key in keys){
+                        if(typeof options[key] != 'undefined'){
+                            response = response[key];
+                        }else{ response = '' }
+                    }
+                    return response;
+                });
             return options.renderCallback(str);
         };
 
