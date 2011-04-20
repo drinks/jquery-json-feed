@@ -17,7 +17,7 @@
                          </div>',
              iterator: function(data){ return data; },
              renderCallback: function(str){
-                 var str = $(this).JSONFeed.utils.activateLinks(str);
+                 // var str = $(this).JSONFeed.utils.activateLinks(str);
                  return $(this).JSONFeed.utils.activateTwitterHashTags(str);
                  return str;
              },
