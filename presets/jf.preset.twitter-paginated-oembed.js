@@ -22,6 +22,10 @@
                  return str;
              },
              appendCallback: function(){
+                 $(this).find('.jf-timestamp').each(function() {
+                     var date = new Date(Date.parse($(this).text()));
+                     $(this).text(date.toUTCString()).relativeDate();
+                 });
                  $(this).JSONFeed.utils.hovercardsWithUsernames(this);
                  $(this).find('p.jf-tweet a').embedly();
              }
