@@ -27,7 +27,7 @@
                      $(this).text(date.toUTCString()).relativeDate();
                  });
                  $(this).JSONFeed.utils.hovercardsWithUsernames(this);
-                 $(this).find('p.jf-tweet a').embedly();
+                 $(this).find('p.jf-tweet').embedly();
              }
         }
     });
