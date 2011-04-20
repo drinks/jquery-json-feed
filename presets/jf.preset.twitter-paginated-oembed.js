@@ -17,7 +17,7 @@
                          </div>',
              iterator: function(data){ return data; },
              renderCallback: function(str){
-                 // var str = $(this).JSONFeed.utils.activateLinks(str);
+                 var str = $(this).JSONFeed.utils.activateLinks(str);
                  return $(this).JSONFeed.utils.activateTwitterHashTags(str);
                  return str;
              },
@@ -27,7 +27,7 @@
                      $(this).text(date.toUTCString()).relativeDate();
                  });
                  $(this).JSONFeed.utils.hovercardsWithUsernames(this);
-                 $(this).find('p.jf-tweet').embedly();
+                 $(this).find('p.jf-tweet a').embedly({urlRe:/(https?:\/\/.*)/i});
              }
         }
     });
