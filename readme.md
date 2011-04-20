@@ -15,7 +15,7 @@ Using presets / utils:
         <title>Test Page</title>
         <script type="text/javascript" src="http://platform.twitter.com/anywhere.js?id=PoUnNSPzXcVYKflGP02Hag&amp;v=1"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script type="text/javascript" src="https://github.com/dandrinkard/jquery-json-feed/raw/master/jquery.json-feed-1.0.0.js"></script>
+        <script type="text/javascript" src="https://github.com/dandrinkard/jquery-json-feed/raw/master/jquery.json-feed.js"></script>
         <script type="text/javascript" src="https://github.com/dandrinkard/jquery-json-feed/raw/master/utils/jf.util.hovercards-with-usernames.js"></script>
         <script type="text/javascript" src="https://github.com/dandrinkard/jquery-json-feed/raw/master/presets/jf.preset.twp-django-moderation.js"></script>
     </head>
@@ -43,7 +43,7 @@ Advanced options, the verbose way:
         <title>Test Page</title>
         <script type="text/javascript" src="http://platform.twitter.com/anywhere.js?id=PoUnNSPzXcVYKflGP02Hag&amp;v=1"></script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script type="text/javascript" src="https://github.com/dandrinkard/jquery-json-feed/raw/master/jquery.json-feed-1.0.0.js"></script>
+        <script type="text/javascript" src="https://github.com/dandrinkard/jquery-json-feed/raw/master/jquery.json-feed.js"></script>
     </head>
     <body>
     <div id="test"></div>
