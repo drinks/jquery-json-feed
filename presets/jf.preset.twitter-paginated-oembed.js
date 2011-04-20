@@ -23,7 +23,7 @@
              },
              appendCallback: function(){
                  $(this).JSONFeed.utils.hovercardsWithUsernames(this);
-                 $(this).find('a').embedly();
+                 $(this).find('p.jf-tweet a').embedly();
              }
         }
     });
