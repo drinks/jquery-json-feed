@@ -82,8 +82,6 @@
         options = $.extend({}, defaults, opts),
         is_unique = function(el){
             if($(el).attr('id')){
-                console.log($(el).attr('id'));
-                console.log($('#'+$(el).attr('id')));
                 return !$('#'+$(el).attr('id')).length;
             }else{
                 // always unique if no ids
@@ -100,17 +98,14 @@
                     success: function(data, status){
                         self.find('.jf-spinner').remove();
                         var objs = options.iterator(data);
-                        console.log(objs);
                         $.each(objs, function(idx, item){
                             // exempt from limit if this is a polling request
                             if(idx<num || action=='poll'){
                                 var el = $(render(item));
                                 if(is_unique(el)){
-                                    console.log('appending...');
                                     self.append(el);
                                 }
                             }else{
-                                console.log('not apending: out of range...');
                                 return false;
                             }
                         });
@@ -208,7 +203,6 @@
             var self = $(ctx),
                 locals = self.data('_page');
             locals.page += 1;
-            console.log(locals.lastUrl);
             var page = self.find('.jf-page').eq(-1).after(pageFactory(locals.page)).next();
             locals.lastUrl = options.paginationUrlGenerator(locals.lastUrl, locals['data'], options);
             self.data('_page', locals);
