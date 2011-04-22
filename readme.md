@@ -7,9 +7,11 @@ designed to make consuming and displaying JSONP feeds trivial and fun.
 Usage:
 ------
 *HTML:*
+
     <div class="my-feed" data-url="myfeed.json"></div>
 
 *JavaScript:*
+
     $('.myfeed).JSONFeed();
 
 Class attributes (Set via function options {}):
