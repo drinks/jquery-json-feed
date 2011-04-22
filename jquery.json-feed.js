@@ -13,44 +13,44 @@
  *
  * Class attributes (Set via function options {}):
  * --------------------------------------------
- * @string url: The url to fetch, globally settable
- * @string jsonp: The name of the callback parameter
- * @string jsonpCallback: The value of the callback parameter
- * @function iterator: Callback function that returns a list of data objects to render
- * @int num: Number of results to render per page
- * @int poll: Number of seconds between content refreshes; 0 disables
- * @function pollUrlGenerator: Callback function that returns the next url for the poller
- *                             (handy for setting since_id, etc)
- * @bool paginate: Whether or not to show a 'Show more' button
- * @function paginationUrlGenerator: Callback function that returns the next url for the paginator
- * @string spinner: HTML markup for a spinner element to display while results are loading
- * @string template: HTML markup for an individual result item
- * @regexp jsonVarP: Pattern to match/capture variable references in the template
- * @regexp optionP: Pattern to match/capture option references in the template
- * @function renderCallback: Function that returns a modified rendered template
- * @function appendCallback: Function called after a page of items are appended to the container
+ * `@string url`: The url to fetch, globally settable
+ * `@string jsonp`: The name of the callback parameter
+ * `@string jsonpCallback`: The value of the callback parameter
+ * `@function iterator`: Callback function that returns a list of data objects to render
+ * `@int num`: Number of results to render per page
+ * `@int poll`: Number of seconds between content refreshes; 0 disables
+ * `@function pollUrlGenerator`: Callback function that returns the next url for the poller
+ * `                            (handy for setting since_id, etc)
+ * `@bool paginate`: Whether or not to show a 'Show more' button
+ * `@function paginationUrlGenerator`: Callback function that returns the next url for the paginator
+ * `@string spinner`: HTML markup for a spinner element to display while results are loading
+ * `@string template`: HTML markup for an individual result item
+ * `@regexp jsonVarP`: Pattern to match/capture variable references in the template
+ * `@regexp optionP`: Pattern to match/capture option references in the template
+ * `@function renderCallback`: Function that returns a modified rendered template
+ * `@function appendCallback`: Function called after a page of items are appended to the container
  *
- * Instance attributes (Set via data-<attr>):
+ * Instance attributes (Set via data-\<attr\>):
  * -----------------------------------------
- * @string url: Overrides the global url
- * @int num: Overrides the number of results to show
- * @int poll: Overrides the global poll interval
- * @bool paginate: Overrides the global paginate var
+ * `@string url`: Overrides the global url
+ * `@int num`: Overrides the number of results to show
+ * `@int poll`: Overrides the global poll interval
+ * `@bool paginate`: Overrides the global paginate var
  *
  * Instance private attrs (data('_key')):
  * --------------------------------------
- * @object _poll:
- *   lastUrl
- *   lastTime
- *   interval
- *   count
- *   page
- *   data
+ * `@object _poll`:
+ *   `lastUrl`
+ *   `lastTime`
+ *   `interval`
+ *   `count`
+ *   `page`
+ *   `data`
  *
- * @object _page:
- *   lastUrl
- *   page
- *   data
+ * `@object _page`:
+ *   `lastUrl`
+ *   `page`
+ *   `data`
  *
  */
 (function($, window, undefined){
