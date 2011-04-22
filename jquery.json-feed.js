@@ -87,7 +87,7 @@
                 // always unique if no ids
                 return true
             }
-        }
+        },
         request = function(url, ctx){
             var self = $(ctx),
                 action = (self.attr('className').match(/page-/)!== null ? 'poll': 'page'),
