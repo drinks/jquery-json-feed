@@ -133,8 +133,10 @@
                             }else{
                                 self.siblings('.jf-show-more').removeClass('disabled');
                                 var _page = self.parent().data('_page');
-                                _page['data'] = data;
-                                self.parent().data('_page', _page);
+                                if(_page){
+                                    _page['data'] = data;
+                                    self.parent().data('_page', _page);
+                                }
                             }
                         }
 
