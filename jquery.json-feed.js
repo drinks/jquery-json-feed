@@ -94,7 +94,7 @@
         // gets a resource and fires a success callback
         request = function(url, ctx, options){
             var self = $(ctx),
-                action = (self.attr('className').match(/page-/)!== null ? 'poll': 'page'),
+                action = ((self.attr('class') || '').match(/page-/)!== null ? 'poll': 'page'),
                 num = self.parent().attr('data-num') || options.num,
                 ajaxOpts = {
                     url: url || options.url,
